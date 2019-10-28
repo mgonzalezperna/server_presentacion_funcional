@@ -13,10 +13,6 @@ def home():
 def test():
     return render_template("test.html")
 
-@app.route("/tone")
-def tone():
-    return render_template("Tone.js")
-
 @app.route("/test-button")
 def test_button():
     return render_template("piano.html")
