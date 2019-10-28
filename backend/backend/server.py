@@ -13,6 +13,10 @@ def home():
 def test():
     return render_template("test.html")
 
+@app.route("/test-button")
+def test_button():
+    return render_template("piano.html")
+
 def serve():
     app.run(host='0.0.0.0')
 
