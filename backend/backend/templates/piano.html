@@ -8,29 +8,44 @@
 
 <body>
     <div>
-        <button ontouchstart="playNote()" ontouchend="stopNote()" id="boton" style="font-size: 10rem;">PRUEBA</button>
+        <div style="margin-bottom: 6rem;margin-top:2rem;text-align: center;">
+            <span style="font-size: 5rem;"> Activar sonido</span>
+            <input id="activar-sonido" ontouchstart="activarSonido()" type="checkbox"
+                style="height:5rem;width:5rem;vertical-align: text-bottom;">
+        </div>
+        <div style="text-align: center;">
+            <button ontouchstart="playNote()" ontouchend="stopNote()" id="boton"
+                style="font-size: 14rem;">PRUEBA</button>
+        </div>
     </div>
 
     <script src="static/Tone.js"></script>
 
     <script>
-        // Tone.Synth is a basic synthesizer with a single oscillator
-        const synth = new Tone.Synth();
-        // Set the tone to sine
-        synth.oscillator.type = "sine";
-        // connect it to the master output (your speakers)
-        synth.toMaster();
+
+        let synth
+
+        function activarSonido() {
+            document.getElementById("activar-sonido").disabled = true
+            document.getElementById("activar-sonido").checked = true
+            synth = new Tone.Synth()
+            synth.oscillator.type = "sine";
+            synth.volume.value = 20;
+            synth.toMaster();
+        }
 
         function playNote() {
             synth.triggerAttack("C4");
         }
 
         function stopNote() {
-            synth.triggerRelease();
+            synth.triggerRelease()
         }
+
     </script>
 </body>
 <style>
+
 </style>
 
 </html>
