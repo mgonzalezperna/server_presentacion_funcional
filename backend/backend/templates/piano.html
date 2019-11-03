@@ -14,7 +14,7 @@
                 style="height:5rem;width:5rem;vertical-align: text-bottom;">
         </div>
         <div style="text-align: center;">
-            <button ontouchstart="playNote()" ontouchend="stopNote()" id="boton"
+            <button class="noselect" ontouchstart="playNote()" ontouchend="stopNote()" id="boton"
                 style="font-size: 14rem;">PRUEBA</button>
         </div>
     </div>
@@ -46,7 +46,20 @@
     </script>
 </body>
 <style>
-
+    .noselect {
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+    }
 </style>
 
 </html>
