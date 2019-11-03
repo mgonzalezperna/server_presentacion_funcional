@@ -26,8 +26,9 @@
         let synth
 
         function activarSonido() {
-            document.getElementById("activar-sonido").disabled = true
-            document.getElementById("activar-sonido").checked = true
+            const checkbox = document.getElementById("activar-sonido")
+            checkbox.disabled = true
+            checkbox.checked = true
             synth = new Tone.Synth()
             synth.oscillator.type = "sine";
             synth.volume.value = 20;
