@@ -13,9 +13,9 @@
                 <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">Sound
                 on</label>
         </div>
-        <div style="text-align: center;">
+        <div>
             <div class="button_cont" ontouchstart="playNote()" ontouchend="stopNote()" align="center">
-                <a id="boton" class="not-touching noselect" target="_blank"
+                <a id="boton" class="not-touching noselect boton" target="_blank"
                     rel="nofollow noopener">{{ note_number }}</a>
             </div>
         </div>
@@ -41,14 +41,12 @@
         function playNote() {
             boton.classList.remove('not-toucing');
             boton.classList.add('touching');
-            boton.textContent = `Playing ${'{{note_number}}'}`
             synth.triggerAttack('{{note}}');
         }
 
         function stopNote() {
             boton.classList.remove('touching');
             boton.classList.add('not-toucing');
-            boton.textContent = `Play ${'{{note_number}}'}`
             synth.triggerRelease()
         }
     </script>
@@ -96,6 +94,17 @@
         margin-bottom: 6rem;
         margin-top: 2rem;
         text-align: center;
+    }
+
+    .boton {
+        font-size: 30rem;
+        width: 30rem;
+        background: #373B44;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6997e0, rgb(96, 102, 116));
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6997e0, rgb(96, 102, 116));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .not-touching {
