@@ -9,13 +9,67 @@ app = Flask(__name__)
 def home():
     return "Hello, World!"
 
+
+
 @app.route("/test")
 def test():
     return render_template("test.html")
 
-@app.route("/test-button")
-def test_button():
-    return render_template("piano.html")
+@app.route("/1")
+def c4Button():
+    return render_template("piano.html", note="c4", note_number="1" )
+
+@app.route("/2")
+def d4Button():
+    return render_template("piano.html", note="d4", note_number="2" )
+
+@app.route("/3")
+def e4Button():
+    return render_template("piano.html", note="e4", note_number="3" )
+
+@app.route("/4")
+def f4Button():
+    return render_template("piano.html", note="f4", note_number="4" )
+
+@app.route("/5")
+def g4Button():
+    return render_template("piano.html", note="g4", note_number="5" )
+
+@app.route("/6")
+def a4Button():
+    return render_template("piano.html", note="a4", note_number="6" )
+
+@app.route("/7")
+def g3Button():
+    return render_template("piano.html", note="g3", note_number="7" )
+
+@app.route("/8")
+def a3Button():
+    return render_template("piano.html", note="a3", note_number="8" )
+
+@app.route("/9")
+def b3Button():
+    return render_template("piano.html", note="b3", note_number="9" )
+
+@app.route("/10")
+def f3Button():
+    return render_template("piano.html", note="f3", note_number="10" )
+
+@app.route("/11")
+def e3Button():
+    return render_template("piano.html", note="e3", note_number="11" )
+
+@app.route("/12")
+def d3Button():
+    return render_template("piano.html", note="d3", note_number="12" )
+
+@app.route("/13")
+def a2Button():
+    return render_template("piano.html", note="a2", note_number="13" )
+
+@app.route("/14")
+def g2Button():
+    return render_template("piano.html", note="g2", note_number="14" )
 
 def serve():
     app.run(host='0.0.0.0')
