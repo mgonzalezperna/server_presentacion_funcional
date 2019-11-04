@@ -9,8 +9,9 @@
 <body>
     <div>
         <div class="margen">
-            <span class="label-activar"> Sound on</span>
-            <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">
+            <label class="label-activar">
+                <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">Sound
+                on</label>
         </div>
         <div style="text-align: center;">
             <div class="button_cont" ontouchstart="playNote()" ontouchend="stopNote()" align="center">
@@ -80,6 +81,7 @@
     }
 
     .checkbox-activar {
+        margin-right: 2rem;
         height: 5rem;
         width: 5rem;
         vertical-align: text-bottom;
