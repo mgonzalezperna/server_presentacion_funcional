@@ -14,7 +14,8 @@
         </div>
         <div style="text-align: center;">
             <div class="button_cont" ontouchstart="playNote()" ontouchend="stopNote()" align="center">
-                <a id="boton" class="not-touching noselect" target="_blank" rel="nofollow noopener">Play</a>
+                <a id="boton" class="not-touching noselect" target="_blank"
+                    rel="nofollow noopener">{{ note_number }}</a>
             </div>
         </div>
     </div>
@@ -39,14 +40,14 @@
         function playNote() {
             boton.classList.remove('not-toucing');
             boton.classList.add('touching');
-            boton.textContent = "Playing"
-            synth.triggerAttack("C4");
+            boton.textContent = `Playing ${'{{note_number}}'}`
+            synth.triggerAttack('{{note}}');
         }
 
         function stopNote() {
             boton.classList.remove('touching');
             boton.classList.add('not-toucing');
-            boton.textContent = "Play"
+            boton.textContent = `Play ${'{{note_number}}'}`
             synth.triggerRelease()
         }
     </script>
