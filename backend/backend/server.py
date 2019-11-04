@@ -25,6 +25,14 @@ def oneToFive():
 def sixToNine():
     return render_template("6-to-9.html")
 
+@app.route("/1-7")
+def oneToSeven():
+    return render_template("1-7.html")
+
+@app.route("/8-14")
+def eightToFourteen():
+    return render_template("8-14.html")
+
 @app.route("/1")
 def c4Button():
     return render_template("piano.html", note="c4", note_number="1" )

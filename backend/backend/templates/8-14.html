@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Poly Synth 8-14</title>
+</head>
+
+<body>
+    <div>
+        <div class="margen">
+            <span class="label-activar"> Sound on</span>
+            <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">
+        </div>
+        <section style="text-align: center;">
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('a3','8')"
+                ontouchend="stopNote('a3','8')" align="center">
+                <a id="button_8" class="not-touching noselect" target="_blank" rel="nofollow noopener">8</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('b3','9')"
+                ontouchend="stopNote('b3','9')" align="center">
+                <a id="button_9" class="not-touching noselect" target="_blank" rel="nofollow noopener">9</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('f3','10')"
+                ontouchend="stopNote('f3','10')" align="center">
+                <a id="button_10" class="not-touching noselect" target="_blank" rel="nofollow noopener">10</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('e3','11')"
+                ontouchend="stopNote('e3','11')" align="center">
+                <a id="button_11" class="not-touching noselect" target="_blank" rel="nofollow noopener">11</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('d3','12')"
+                ontouchend="stopNote('d3','12')" align="center">
+                <a id="button_12" class="not-touching noselect" target="_blank" rel="nofollow noopener">12</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('a2','13')"
+                ontouchend="stopNote('a2','13')" align="center">
+                <a id="button_13" class="not-touching noselect" target="_blank" rel="nofollow noopener">13</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('g2','14')"
+                ontouchend="stopNote('g2','14')" align="center">
+                <a id="button_14" class="not-touching noselect" target="_blank" rel="nofollow noopener">14</a>
+            </span>
+
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script>
+
+    <!-- <script src="static/Tone.js"></script> -->
+
+    <script>
+
+        let synth
+
+
+        function activarSonido() {
+            const checkbox = document.getElementById("activar-sonido")
+            checkbox.disabled = true
+            checkbox.checked = true
+            synth = new Tone.PolySynth(6, Tone.Synth, {
+                oscillator: {
+                    type: "square"
+                }
+            })
+            synth.volume.value = 20;
+            synth.toMaster();
+        }
+
+        function playNote(note, number) {
+            const boton = document.getElementById(`button_${number}`)
+            boton.classList.remove('not-toucing');
+            boton.classList.add('touching');
+            synth.triggerAttack([note], undefined, 0.2);
+            // synth.triggerAttack(note);
+        }
+
+        function stopNote(note, number) {
+            const boton = document.getElementById(`button_${number}`)
+            boton.classList.remove('touching');
+            boton.classList.add('not-toucing');
+            synth.triggerRelease([note])
+        }
+    </script>
+</body>
+<style>
+    body {
+        font-family: sans-serif;
+        background: #373B44;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4286f4, #373B44);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+    }
+
+    .checkbox-activar {
+        height: 5rem;
+        width: 5rem;
+        vertical-align: text-bottom;
+    }
+
+    .label-activar {
+        font-size: 5rem;
+        color: white
+    }
+
+    .margen {
+        margin-bottom: 6rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .not-touching {
+        font-size: 14rem;
+        color: white !important;
+        border: 4px solid white !important;
+        padding: 20px;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+        touch-action: manipulation;
+    }
+
+    .touching {
+        color: #20bf6b !important;
+        border: 4px solid #20bf6b !important;
+        background: #ffffff;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+    }
+</style>
+
+</html>
