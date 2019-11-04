@@ -9,7 +9,7 @@
 <body>
     <div>
         <div class="margen">
-            <label class="label-activar">
+            <label class="label-activar" unselectable="on" onselectstart="return false;" onmousedown="return false;">
                 <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">Sound
                 on</label>
         </div>
@@ -87,7 +87,12 @@
 
     .label-activar {
         font-size: 5rem;
-        color: white
+        color: white;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -o-user-select: none;
     }
 
     .margen {
