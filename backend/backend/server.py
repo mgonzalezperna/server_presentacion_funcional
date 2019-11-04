@@ -9,11 +9,13 @@ app = Flask(__name__)
 def home():
     return "Hello, World!"
 
-
-
 @app.route("/test")
 def test():
     return render_template("test.html")
+
+@app.route("/test-button")
+def testButton():
+    return render_template("test-button.html")
 
 @app.route("/1")
 def c4Button():
