@@ -9,29 +9,29 @@ app = Flask(__name__)
 def home():
     return "Hello, World!"
 
-@app.route("/test")
-def test():
-    return render_template("test.html")
+# @app.route("/test")
+# def test():
+#     return render_template("test.html")
 
-@app.route("/test-button")
-def testButton():
-    return render_template("test-button.html")
+# @app.route("/test-button")
+# def testButton():
+#     return render_template("test-button.html")
 
-@app.route("/1-to-5")
-def oneToFive():
-    return render_template("1-to-5.html")
+# @app.route("/1-to-5")
+# def oneToFive():
+#     return render_template("1-to-5.html")
 
-@app.route("/6-to-9")
-def sixToNine():
-    return render_template("6-to-9.html")
+# @app.route("/6-to-9")
+# def sixToNine():
+#     return render_template("6-to-9.html")
 
-@app.route("/1-7")
-def oneToSeven():
-    return render_template("1-7.html")
+# @app.route("/1-7")
+# def oneToSeven():
+#     return render_template("1-7.html")
 
-@app.route("/8-14")
-def eightToFourteen():
-    return render_template("8-14.html")
+# @app.route("/8-14")
+# def eightToFourteen():
+#     return render_template("8-14.html")
 
 @app.route("/1")
 def c4Button():
