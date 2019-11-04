@@ -17,6 +17,14 @@ def test():
 def testButton():
     return render_template("test-button.html")
 
+@app.route("/1-to-5")
+def oneToFive():
+    return render_template("1-to-5.html")
+
+@app.route("/6-to-9")
+def sixToNine():
+    return render_template("6-to-9.html")
+
 @app.route("/1")
 def c4Button():
     return render_template("piano.html", note="c4", note_number="1" )

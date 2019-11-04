@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>6 to 9</title>
+</head>
+
+<body>
+    <div>
+        <div class="margen">
+            <span class="label-activar"> Sound on</span>
+            <input class="checkbox-activar" id="activar-sonido" ontouchstart="activarSonido()" type="checkbox">
+        </div>
+        <section style="text-align: center;">
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('a4','6')"
+                ontouchend="stopNote('6')" align="center">
+                <a id="button_6" class="not-touching noselect" target="_blank" rel="nofollow noopener">6</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('g3','7')"
+                ontouchend="stopNote('7')" align="center">
+                <a id="button_7" class="not-touching noselect" target="_blank" rel="nofollow noopener">7</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('a3','8')"
+                ontouchend="stopNote('8')" align="center">
+                <a id="button_8" class="not-touching noselect" target="_blank" rel="nofollow noopener">8</a>
+            </span>
+            <span style="margin-right: 3rem;" class="button_cont" ontouchstart="playNote('b3','9')"
+                ontouchend="stopNote('9')" align="center">
+                <a id="button_9" class="not-touching noselect" target="_blank" rel="nofollow noopener">9</a>
+            </span>
+
+        </section>
+    </div>
+    <script src="static/Tone.js"></script>
+
+    <script>
+
+        let synth
+
+
+        function activarSonido() {
+            const checkbox = document.getElementById("activar-sonido")
+            checkbox.disabled = true
+            checkbox.checked = true
+            synth = new Tone.Synth()
+            synth.oscillator.type = "sine";
+            synth.volume.value = 20;
+            synth.toMaster();
+        }
+
+        function playNote(note, number) {
+            const boton = document.getElementById(`button_${number}`)
+            boton.classList.remove('not-toucing');
+            boton.classList.add('touching');
+            synth.triggerAttack(note);
+        }
+
+        function stopNote(number) {
+            const boton = document.getElementById(`button_${number}`)
+            boton.classList.remove('touching');
+            boton.classList.add('not-toucing');
+            synth.triggerRelease()
+        }
+    </script>
+</body>
+<style>
+    body {
+        font-family: sans-serif;
+        background: #373B44;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4286f4, #373B44);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+    }
+
+    .checkbox-activar {
+        height: 5rem;
+        width: 5rem;
+        vertical-align: text-bottom;
+    }
+
+    .label-activar {
+        font-size: 5rem;
+        color: white
+    }
+
+    .margen {
+        margin-bottom: 6rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .not-touching {
+        font-size: 14rem;
+        color: white !important;
+        border: 4px solid white !important;
+        padding: 20px;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+        touch-action: manipulation;
+    }
+
+    .touching {
+        color: #20bf6b !important;
+        border: 4px solid #20bf6b !important;
+        background: #ffffff;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+    }
+</style>
+
+</html>
